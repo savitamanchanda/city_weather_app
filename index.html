@@ -7,7 +7,7 @@
   <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css">
   <script src="https://kit.fontawesome.com/9a3f8968c5.js" crossorigin="anonymous"></script>
-  <title>Can you Code?</title>
+  <title>Weather Dashboard</title>
 
 </head>
 
@@ -23,8 +23,8 @@
                   <div class="card">
                     <div class="card-body">
                       <h5 class="card-title">Search By City</h5>
-                      <input type="text"></input>
-                      <a href="#" class="btn btn-primary">Search</a>
+                      <input id="city" type="text"></input>
+                      <a class="btn btn-primary">Search</a>
                     </div>
                   </div>
                 </div>
@@ -41,9 +41,12 @@
     </section>
     <section>
         <div class="container">
-            <h4>5 Day Forecast</h4>
+            <h4>5 Day Forecast <span id="city-search-term"></span></span></h4>
+            <div id="forecast-container" class="list-group"></div>
         </div>
     </section>
 </main>
+
+<script src="./script.js"></script>
 </body>
 </html>
