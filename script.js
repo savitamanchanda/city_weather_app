@@ -36,7 +36,7 @@ var buttonHandler = function(event) {
 };
 
 var getCityname = function (city) {
-    var apiUrl = 'http://api.openweathermap.org/geo/1.0/direct?q=' + city + '&limit=1&appid=c5a5ec0037fb9829d9254f1a67b4d869';
+    var apiUrl = 'https://api.openweathermap.org/geo/1.0/direct?q=' + city + '&limit=1&appid=c5a5ec0037fb9829d9254f1a67b4d869';
 
     fetch(apiUrl)
     .then(function(response) {
@@ -55,7 +55,7 @@ var getCityname = function (city) {
 
 
 var getForecast = function(lat,long) {
-    var apiUrl = 'http://api.openweathermap.org/data/2.5/forecast?lat=' + lat + '&lon=' + long + '&units=imperial&appid=c5a5ec0037fb9829d9254f1a67b4d869';
+    var apiUrl = 'https://api.openweathermap.org/data/2.5/forecast?lat=' + lat + '&lon=' + long + '&units=imperial&appid=c5a5ec0037fb9829d9254f1a67b4d869';
     fetch(apiUrl)
     .then(function (response) {
         if (response.ok) {
@@ -79,11 +79,11 @@ var displayForecast = function (list) {
         var temp = list[i].main.temp;
         var humidity = list[i].main.humidity + '%';
         var descrip = list[i].weather[0].description;
+        var wind = list[i].wind.speed;
 
         
         var forecastContainer = document.createElement('div');
         forecastContainer.classList = 'card';
-        //forecastContainer.style = "width: 18rem";
 
         var dateEl = document.createElement('div');
         dateEl.classList = 'card-header'
@@ -119,6 +119,12 @@ var displayForecast = function (list) {
         humidityEl.textContent = 'Humidity: ' + humidity;
 
         listEl.appendChild(humidityEl);
+
+        var windEl = document.createElement('li');
+        windEl.classList = 'list-group-item';
+        windEl.textContent = 'Wind: ' + wind + 'MPH';
+
+        listEl.appendChild(windEl);
 
         var descripEl = document.createElement('li');
         descripEl.classList = 'list-group-item';
