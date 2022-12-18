@@ -94,6 +94,18 @@ var displayForecast = function (list) {
         
         dateEl.appendChild(listEl);
 
+        var image = document.createElement('li');
+        image.classList = 'list-group-item';
+        if (list[i].clouds.all < 10) {
+            image.innerHTML = '  <img src="./assets:images/sun.png" alt="sunny" width="222" height="222">';
+        } else if (list[i].clouds.all < 50 && list[i].clouds.all > 10) {
+            image.innerHTML = '<img src="./assets:images/cloudy.png" alt="little cloudy" width="222" height="222">';
+        } else {
+            image.innerHTML = '  <img src="./assets:images/cloud.png" alt="cloudy" width="222" height="222">';
+        }
+
+        listEl.appendChild(image);
+
         var tempEl = document.createElement('li');
         tempEl.classList = 'list-group-item';
         tempEl.textContent = 'Temperature: ' + temp;
