@@ -1,8 +1,10 @@
-
+* {
+    box-sizing: border-box;
+  }
 
 header {
     text-align: center;
-    background-color: rgb(172, 226, 251);
+    background-color: rgb(189, 232, 251);
     padding-bottom: 20px;
 }
 
@@ -18,3 +20,53 @@ main {
     display: inline-block;
     padding: 30px;
 }
+
+.list-group {
+    padding: 0;
+    list-style: none;
+  }
+  
+  .list-item {
+    margin-bottom: 10px;
+    padding: 1.5%;
+    border-radius: 0.3rem;
+    text-decoration: none;
+  }
+
+  .card {
+    margin: 0 0 20px 0;
+    border-radius: 0.3rem;
+    width: 100%;
+  }
+  
+  .card-header {
+    padding: 2.5%;
+    border-radius: calc(.18rem - 1px) calc(.18rem - 1px) 0 0;
+  }
+  
+  .card-body {
+    padding: 2.5%;
+  }
+
+  main {
+    text-align: center;
+    align-items: center;
+    position: absolute;
+    left: 20%;
+  }
+
+  .results {
+    align-items: center;
+  }
+
+  .hide {
+    display: none;
+  }
+
+  button:hover {
+   box-shadow: 2px 2px 2px 2px rgb(162, 225, 255); 
+  }
+
+  #search {
+    background-image: linear-gradient(#61c2fa4d 0%, rgba(254, 242, 135, 0.6) 100%)
+  }

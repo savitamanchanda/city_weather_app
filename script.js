@@ -3,6 +3,7 @@ var forecast = document.getElementById('forecast-container');
 var citySearch = document.getElementById('city-search-term');
 var search_btn = document.getElementById('search');
 var previousButtonsEl = document.querySelector('#previous-buttons');
+var title = document.getElementById('title');
 
 var long;
 var lat;
@@ -71,6 +72,7 @@ var getForecast = function(lat,long) {
 };
 
 var displayForecast = function (list) {
+    title.classList.remove('hide');
 
     for (var i = 0; i < list.length; i=i+8) {
         var date = dayjs(list[i].dt_txt).format('MM/DD/YYYY');
@@ -81,7 +83,7 @@ var displayForecast = function (list) {
         
         var forecastContainer = document.createElement('div');
         forecastContainer.classList = 'card';
-        forecastContainer.style = "width: 18rem";
+        //forecastContainer.style = "width: 18rem";
 
         var dateEl = document.createElement('div');
         dateEl.classList = 'card-header'
