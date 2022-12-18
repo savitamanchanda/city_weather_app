@@ -2,7 +2,7 @@ var cityInput = document.getElementById('city');
 var forecast = document.getElementById('forecast-container');
 var citySearch = document.getElementById('city-search-term');
 var search_btn = document.getElementById('search');
-var previousButtonsEL = document.querySelector('#previous-buttons');
+var previousButtonsEl = document.querySelector('#previous-buttons');
 
 var long;
 var lat;
@@ -12,15 +12,26 @@ var searchHandler = function (event) {
     event.preventDefault();
 
     var city = cityInput.value.trim();
-    localStorage.setItem("city",city);
 if (city) {
     getCityname(city);
 
     forecast.textContent = '';
     cityInput.value = '';
+    citySearch.textContent = "- " + city;
 } else {
     alert('Please enter a valid city name');
 }
+};
+
+var buttonHandler = function(event) {
+    var previous = event.target.getAttribute('data-city');
+
+    if(previous) {
+        getCityname(previous);
+
+        forecast.textContent = '';
+        citySearch.textContent = '- ' + event.target.innerHTML;
+    }
 };
 
 var getCityname = function (city) {
@@ -43,7 +54,7 @@ var getCityname = function (city) {
 
 
 var getForecast = function(lat,long) {
-    var apiUrl = 'http://api.openweathermap.org/data/2.5/forecast?lat=' + lat + '&lon=' + long + '&appid=c5a5ec0037fb9829d9254f1a67b4d869';
+    var apiUrl = 'http://api.openweathermap.org/data/2.5/forecast?lat=' + lat + '&lon=' + long + '&units=imperial&appid=c5a5ec0037fb9829d9254f1a67b4d869';
     fetch(apiUrl)
     .then(function (response) {
         if (response.ok) {
@@ -63,7 +74,7 @@ var displayForecast = function (list) {
 
     for (var i = 0; i < list.length; i=i+8) {
         var date = dayjs(list[i].dt_txt).format('MM/DD/YYYY');
-        var temp = Math.round(((list[i].main.temp) - 273.15) * 9/5 + 32);
+        var temp = list[i].main.temp;
         var humidity = list[i].main.humidity + '%';
         var descrip = list[i].weather[0].description;
 
@@ -85,13 +96,13 @@ var displayForecast = function (list) {
 
         var tempEl = document.createElement('li');
         tempEl.classList = 'list-group-item';
-        tempEl.textContent = 'Temperature:' + temp;
+        tempEl.textContent = 'Temperature: ' + temp;
 
         listEl.appendChild(tempEl);
 
         var humidityEl = document.createElement('li');
         humidityEl.classList = 'list-group-item';
-        humidityEl.textContent = 'Humidity' + humidity;
+        humidityEl.textContent = 'Humidity: ' + humidity;
 
         listEl.appendChild(humidityEl);
 
@@ -107,3 +118,4 @@ var displayForecast = function (list) {
 };  
 
 search_btn.addEventListener('click', searchHandler);
+previousButtonsEl.addEventListener('click', buttonHandler);
