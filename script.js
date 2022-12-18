@@ -2,8 +2,8 @@ var cityInput = document.getElementById('city');
 var forecast = document.getElementById('forecast-container');
 var citySearch = document.getElementById('city-search-term');
 var search_btn = document.getElementById('search');
-var previousTitle = document.getElementById('previous');
-var previousBtn = document.getElementsByClassName('previous_btn');
+var previousButtonsEL = document.querySelector('#previous-buttons');
+
 var long;
 var lat;
 var previousCity;
@@ -15,7 +15,6 @@ var searchHandler = function (event) {
     localStorage.setItem("city",city);
 if (city) {
     getCityname(city);
-    //displayPrevious(city)
 
     forecast.textContent = '';
     cityInput.value = '';
@@ -105,17 +104,6 @@ var displayForecast = function (list) {
         forecast.appendChild(forecastContainer);
 
     }
-}; 
-
-/*var displayPrevious = function(city) {
-    previousCity = localStorage.getItem("city");
-
-    var previous = document.createElement('button');
-    previous.classList = 'previous_btn'
-    previous.textContent = previousCity;
-
-    previousTitle.appendChild(previous);
-    previousBtn.addEventListener('click', previousClicked);
-}*/
+};  
 
 search_btn.addEventListener('click', searchHandler);
