@@ -108,7 +108,7 @@ var displayForecast = function (list) {
 
         var tempEl = document.createElement('li');
         tempEl.classList = 'list-group-item';
-        tempEl.textContent = 'Temperature: ' + temp;
+        tempEl.textContent = 'Temperature: ' + Math.round(temp) + 'F';
 
         listEl.appendChild(tempEl);
 
