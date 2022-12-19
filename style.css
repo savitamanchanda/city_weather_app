@@ -36,7 +36,7 @@ main {
   .card {
     margin: 0 0 20px 0;
     border-radius: 0.3rem;
-    width: 100%;
+    width: 700px
   }
   
   .card-header {
@@ -63,10 +63,23 @@ main {
     display: none;
   }
 
-  button:hover {
-   box-shadow: 2px 2px 2px 2px rgb(162, 225, 255); 
-  }
-
   #search {
     background-image: linear-gradient(#61c2fa4d 0%, rgba(254, 242, 135, 0.6) 100%)
+  }
+
+  #search:hover {
+    box-shadow: 2px 2px 2px 2px rgb(162, 225, 255); 
+  }
+
+  .p-Btns {
+    margin: 10px;
+    background-image: linear-gradient(#61c2fa4d 10%, rgba(254, 242, 135, 0.6) 90%);
+    width: 100px;
+    height: 50px;
+    font-size: 20px;
+
+  }
+
+  .p-Btns:hover {
+    box-shadow: 2px 2px 2px 2px rgb(162, 225, 255); 
   }

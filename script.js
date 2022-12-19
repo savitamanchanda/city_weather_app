@@ -4,6 +4,7 @@ var citySearch = document.getElementById('city-search-term');
 var search_btn = document.getElementById('search');
 var previousButtonsEl = document.querySelector('#previous-buttons');
 var title = document.getElementById('title');
+var previousBtn = document.getElementById('previous-buttons');
 
 var long;
 var lat;
@@ -13,8 +14,10 @@ var searchHandler = function (event) {
     event.preventDefault();
 
     var city = cityInput.value.trim();
+    localStorage.setItem("city", city);
 if (city) {
     getCityname(city);
+    displayPrevious();
 
     forecast.textContent = '';
     cityInput.value = '';
@@ -24,11 +27,21 @@ if (city) {
 }
 };
 
+var displayPrevious = function(){
+    previousCity = localStorage.getItem("city");
+    var previous = document.createElement('button');
+    previous.dataset.city = previousCity;
+    previous.classList = "p-Btns";
+    previous.textContent = previousCity;
+
+    previousBtn.appendChild(previous);
+}
+
 var buttonHandler = function(event) {
-    var previous = event.target.getAttribute('data-city');
+    var p_clicked = event.target.getAttribute('data-city');
 
     if(previous) {
-        getCityname(previous);
+        getCityname(p_clicked);
 
         forecast.textContent = '';
         citySearch.textContent = '- ' + event.target.innerHTML;
@@ -136,6 +149,7 @@ var displayForecast = function (list) {
 
     }
 };  
+
 
 search_btn.addEventListener('click', searchHandler);
 previousButtonsEl.addEventListener('click', buttonHandler);
