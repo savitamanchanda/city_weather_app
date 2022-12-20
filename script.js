@@ -8,6 +8,7 @@ var previousBtn = document.getElementById('previous-buttons');
 c_weather = document.getElementById('current_weather');
 currentContainer = document.getElementById('c-container');
 var cSearch = document.getElementById('c-search-term');
+var p_title = document.getElementById('previous_title');
 
 var long;
 var lat;
@@ -32,6 +33,7 @@ if (city) {
 };
 
 var displayPrevious = function(){
+    p_title.classList.remove('hide');
     previousCity = localStorage.getItem("city");
     var previous = document.createElement('button');
     previous.dataset.city = previousCity;
