@@ -20,13 +20,20 @@ N/A
 
 Please refer to the LICENSE in the repo. 
 
+[video](./assets%3Aimages/Weather%20Dashboard.gif)
+
 [screenshot-1](./assets%3Aimages/1.png)
 [screenshot-2](./assets%3Aimages/2.png)
 [screenshot-3](./assets%3Aimages/3.png)
 [screenshot-4](./assets%3Aimages/4.png)
 [screenshot-5](./assets%3Aimages/5.png)
+[screenshot-6](./assets%3Aimages/6.png)
+[screenshot-7](./assets%3Aimages/7.png)
+[screenshot-8](./assets%3Aimages/8.png)
+[screenshot-9](./assets%3Aimages/9.png)
+[screenshot-10](./assets%3Aimages/10.png)
+[screenshot-11](./assets%3Aimages/11.png)
 
-[video](./assets%3Aimages/Weather%20Dashboard.gif)
 
 * The URL of the deployed application - https://savitamanchanda.github.io/city_weather_app/
 

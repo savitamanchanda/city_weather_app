@@ -51,6 +51,8 @@ var buttonHandler = function(event) {
 
         forecast.textContent = '';
         citySearch.textContent = '- ' + event.target.innerHTML;
+        cSearch.textContent = '- ' + event.target.innerHTML;
+
     }
 };
 
