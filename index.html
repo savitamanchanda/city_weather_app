@@ -13,6 +13,7 @@
   crossorigin="anonymous"
 ></script>
   <script src="https://kit.fontawesome.com/9a3f8968c5.js" crossorigin="anonymous"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
   <title>Weather Dashboard</title>
 </head>
 
@@ -33,9 +34,16 @@
                     <div id="previous-buttons" class="card-body">
                   </div>
                 </div>
+
+        <div class="current">
+            <div class="card ">
+                <h3 class="card-header text-uppercase hide" id="current_weather">Current Weather <span id="c-search-term"></span></h3>
+                <div id="c-container" class="list-group"></div>
+            </div>
+        </div>
 <section>
         <div>
-            <h2 class="hide" id="title">5 Day Forecast <span id="city-search-term"></span></h2>
+            <h2 class="hide text-uppercase" id="title">5 Day Forecast <span id="city-search-term"></span></h2>
             <div id="forecast-container" class="list-group"></div>
         </div>
 </section>
